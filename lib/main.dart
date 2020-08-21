@@ -1,3 +1,4 @@
+import 'package:cache_demo/audio_screen.dart';
 import 'package:cache_demo/constatnts.dart';
 import 'package:cache_demo/video_screen.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -22,29 +23,35 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Cache Demo'),
-          actions: [
-            IconButton(
-              icon: Icon(Icons.video_library),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => VideoScreen(),
-                  ),
-                );
-              },
-            )
-          ],
-        ),
-        body: ListView.builder(
-            itemCount: kImages.length,
-            itemBuilder: (context, index) {
-              return MyCachedImage(
-                imageUrl: kImages[index],
+      appBar: AppBar(
+        title: Text('Cache Demo'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.video_library),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => VideoScreen(),
+                ),
               );
-            }));
+            },
+          )
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.music_note),
+        onPressed: () => Navigator.push(
+            context, MaterialPageRoute(builder: (_) => AudioScreen())),
+      ),
+      body: ListView.builder(
+          itemCount: kImages.length,
+          itemBuilder: (context, index) {
+            return MyCachedImage(
+              imageUrl: kImages[index],
+            );
+          }),
+    );
   }
 }
 
