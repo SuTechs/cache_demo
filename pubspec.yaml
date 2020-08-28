@@ -24,6 +24,8 @@ dependencies:
       url: https://github.com/sanekyy/plugins.git
       ref: caching
       path: packages/video_player/video_player
+  aes_crypt: ^0.1.1
+  path_provider: ^1.6.14
 
 dev_dependencies:
   flutter_test:

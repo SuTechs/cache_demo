@@ -4,6 +4,8 @@ import 'package:cache_demo/video_screen.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
+import 'encrypt_file.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -27,6 +29,17 @@ class Home extends StatelessWidget {
         title: Text('Cache Demo'),
         actions: [
           IconButton(
+            icon: Icon(Icons.enhanced_encryption),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => EncryptFile(),
+                ),
+              );
+            },
+          ),
+          IconButton(
             icon: Icon(Icons.video_library),
             onPressed: () {
               Navigator.push(
@@ -36,7 +49,7 @@ class Home extends StatelessWidget {
                 ),
               );
             },
-          )
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
